@@ -1,0 +1,33 @@
+#include <iostream>
+#include <forward_list>
+
+int main()
+{
+	std::forward_list<int> numbers = {1, 2, 3, 4, 5};
+
+	auto prev = numbers.before_begin();
+	std::cout << &prev << std::endl;
+	//std::cout << *prev << std::endl << std::endl;  ////cannot dereference forward_list before_begin ////
+	auto current = numbers.begin();
+	std::cout << &current << std::endl;
+	std::cout << *current << std::endl << std::endl;
+	auto end = numbers.end();
+	while (current != end)
+	{
+		std::cout << *current << "\t";
+		current++;
+	}
+	std::cout << std::endl;
+
+	return 0;
+}
+
+
+
+/*Вывод:
+При учете, что 10 строка закомментирована 
+0000006F9B8FF418
+0000006F9B8FF448
+1
+
+1       2       3       4       5*/
