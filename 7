@@ -1,0 +1,93 @@
+#include <iostream>
+#include <list>
+
+int main() {
+	setlocale(LC_ALL,""); //// нужно добавить русский язык ////
+
+	std::list <int> numbers = { 1, 2, 3, 4, 5, 6, 7, 8 };
+	int first = numbers.front(); //1
+	int last = numbers.back(); // 5
+	// перебор в цикле
+	for (int n : numbers)
+		std::cout << n << "\t";
+		std::cout << std::endl;
+	// перебор с помощью итераторов
+	for (auto iter = numbers.begin(); iter != numbers.end(); iter++)
+	{
+		std::cout << *iter << "\t";
+	}
+	std::cout << std::endl;
+
+	int size = numbers.size();
+	std::cout << size << " :Для получения размера списка можно использовать функцию size()" << std::endl;
+
+	if (numbers.empty())//Функция empty позволяет узнать, пуст ли список.
+	//Если он пуст, то функция возвращает значение true, иначе возвращается значение false:
+	std::cout << "The list is empty" << std::endl;
+	else
+	std::cout << "The list is not empty" << std::endl;
+
+	//С помощью функции resize можно изменить размер списка
+	//resize(n): оставляет в списке п первых элементов. Если список содержит больше элементов,
+	//то он усекается до первых п элементов. Если размер списка меньше п, то добавляются
+	//недостающие элементы и инициализируются значением по умолчанию
+	numbers.resize(4); // оставляем первые четыре элемента - numbers = {1, 2, 3, 43
+	for (int n : numbers)
+		std::cout << n << "\t";
+		 std::cout << std:: endl;
+
+	//resize(n, value): также оставляет в списке п первых элементов. Если размер списка меньше п, 
+	//то добавляются недостающие элементы со значением value
+		numbers.resize(6, 8); // numbers = {1, 2, 3, 4, 8, 8}
+		for (int n : numbers)
+		std::cout << n << "\t";
+		 std::cout << std::endl;
+	//Функция assign() позволяет заменить все элементы списка определенным набором. Она имеет следующие формы:
+	//assign(il): заменяет содержимое контейнера элементами из списка инициализации 
+	 
+	//assign(n, value): заменяет содержимое контейнера п элементами, которые имеют значение value
+	
+	//assign(begin, end): заменяет содержимое контейнера элементами из диапазона, на начало и конец которого
+	//указывают итераторы begin и end
+		numbers.assign({ 21, 22, 23, 24, 25 }); // numbers = { 21, 22, 23, 24, 25 }
+		numbers.assign(4, 3);  // numbers = {3, 3, 3, 3}
+		for (int n : numbers)
+	std::cout << n << "\t";
+	std::cout << std::endl;
+	std::list<int> values = { 6, 7, 8, 9, 10, 11 };
+	auto start = ++values.begin(); // итератор указывает на второй элемент из values
+	auto end = values.end();
+	numbers.assign(start, end); // numbers = { 7, 8, 9, 10, 11}
+	for (int n : numbers)
+	std::cout << n << "\t";
+	std::cout << std::endl;
+
+	//Функция swap() обменивает значениями два списка:
+	std::list<int> list1 = { 1, 2, 3, 4, 5 };
+	std::list<int> list2 = { 6, 7, 8, 9 };
+	list1.swap(list2);
+
+	for (int n : list1)
+	std::cout << n << "\t" << " вывод list1";
+	std::cout << std::endl;
+
+	 for (int n : list2)
+	std::cout << n << "\t" << "вывод list2";
+	std::cout << std::endl;
+
+return 0;
+}
+
+
+
+/*Вывод:
+1       2       3       4       5       6       7       8
+1       2       3       4       5       6       7       8
+8 :Для получения размера списка можно использовать функцию size()
+The list is not empty
+1       2       3       4
+1       2       3       4       8       8
+3       3       3       3
+7       8       9       10      11
+6        вывод list17    вывод list18    вывод list19    вывод list1
+1       вывод list22    вывод list23    вывод list24    вывод list25    вывод list2 */
