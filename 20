@@ -1,0 +1,27 @@
+#include <iostream>
+#include <queue>
+
+using namespace std;
+
+int main()
+{
+	queue <int> q;
+	for (int i = 0; i < 10; i++)
+		q.push(i);
+	cout << "queue size = " << q.size() << endl;
+	cout << "last element = " << q.back() << endl;
+	while (!q.empty())
+	{
+		cout << q.front() << " ";
+		q.pop();
+	}
+
+
+	return 0;
+}
+
+
+/*Вывод:
+queue size = 10
+last element = 9
+0 1 2 3 4 5 6 7 8 9*/
