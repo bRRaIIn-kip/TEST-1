@@ -1,0 +1,25 @@
+#include <iostream>
+#include <array> 
+#include <ctime>
+#include <cstdlib>
+
+using namespace std;
+
+int main() {
+	array <int, 20> mas;
+	srand(time(0));
+
+	for (auto i = 0; i < mas.size(); i++) {
+		mas[i] = 10 + rand() % 90;
+	}
+
+	for (auto i = 0; i < mas.size(); i++) {
+		cout << mas[i] << " ";
+	}
+
+	return 0;
+}
+
+
+/*Вывод:
+13 88 58 69 75 31 26 56 86 70 63 35 10 41 49 36 28 62 68 17 */
