@@ -1,0 +1,33 @@
+#include <iostream> 
+#include <vector>
+
+using namespace std;
+int main() {
+	setlocale(0, "");
+
+	vector <string> vec_string; // на стандарте 20 года можно не подключать библиотеку стринг
+
+	vec_string.push_back("апельсин"); //добавляем
+	vec_string.push_back("груша"); //четыре
+	vec_string.push_back("яблока");// элемента
+	vec_string.push_back("вишня");// в конец вектора
+
+	for (int i = 0; i < vec_string.size(); i++) {
+		cout << vec_string[i] << " ";
+	}
+
+	cout << endl;
+
+	vec_string.pop_back(); // удаляем элемент
+
+	for (int i = 0; i < vec_string.size(); i++) {
+		cout << vec_string[i] << " ";
+	}
+
+	system("pause");
+	return 0;
+}
+
+/*Вывод:
+апельсин груша яблока вишня
+апельсин груша яблока*/
