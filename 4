@@ -1,0 +1,32 @@
+#include <iostream>
+#include <vector> // подключили библиотеку
+
+using namespace std;
+
+int main() {
+	setlocale(0, "");
+	vector <int> vector_first(3); // объявили
+								//два
+	vector <int> vector_second;//вектора
+	vector_second.reserve(3);
+
+	cout << "Значения первого вектора (с помоцью скобок): ";
+
+	for (int i = 0; i < 3; i++) {
+		cout << vector_first[i] << " ";
+	}
+
+	cout << "Значения второго вектора (с помощью reserve): " << endl;
+
+	for (int i = 0; i < 3; i++) {
+		cout << vector_second[i] << " ";
+	}
+
+	system("pause");
+	return 0;
+}
+
+/*Вывод:
+Значения первого вектора (с помоцью скобок): 0 0 0 
+Значения второго вектора (с помощью reserve): 
+Значения второго вектора отсутствуют, программа выдаёт ошибку*/
