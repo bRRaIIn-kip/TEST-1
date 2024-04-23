@@ -1,0 +1,20 @@
+#include <iostream>
+#include <list>
+
+using namespace std;
+
+int main() {
+	list <int> mylist { 1, 2, 3, 4, 5, 6 };
+	list <int> listmerge = { 7, 8, 9 };
+	mylist.push_back(1);
+	mylist.push_front(6); //6 1 2 3 4 5 6 1
+	mylist.sort(); //1 1 2 3 4 5 6 6
+	mylist.unique(); //1 2 3 4 5 6
+	mylist.merge(listmerge); // 1 2 3 4 5 6 7 8 9
+	return 0;
+}
+
+
+/*Вывод:
+В отличие от примера на слайде, программа ничего не выводит в консоль
+Работа программы полностью корректна*/
