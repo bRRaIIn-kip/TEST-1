@@ -1,0 +1,37 @@
+#include <iostream>
+#include <forward_list>
+
+using namespace std;
+
+int main()
+{
+forward_list<int> numbers = { 1, 2, 3, 4, 5 };
+
+numbers.assign({ 21, 22, 23, 24, 25 });  // numbers = ( 21, 22, 23, 24, 25 }
+ for (int n : numbers)
+		cout << n << "\t";
+	cout << endl;
+numbers.assign(4, 3);	// numbers = {3, 3, 3, 3}
+ for (int n : numbers)
+		cout << n << "\t";
+	cout << endl;
+forward_list<int> values = { 6, 7, 8, 9, 10, 11 };
+auto start = ++values.begin(); // итератор указывает на второй элемент из values
+auto end = values.end();
+for (int n : values)
+		cout << n << "\t";
+	cout << endl;
+numbers.assign(start, end); // numbers = { 7, 8, 9, 10, 11 }
+for (int n : numbers)
+		cout << n << "\t";
+	cout << endl;
+return 0;
+}
+
+/*
+Вывод:
+21      22      23      24      25
+3       3       3       3
+6       7       8       9       10      11
+7       8       9       10      11
+*/
