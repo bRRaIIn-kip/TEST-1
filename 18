@@ -1,0 +1,45 @@
+#include <iostream>
+#include <deque> 
+#include <string> 
+
+using namespace std;
+
+int main() {
+	setlocale(0, "ru");						//// Не была подключена кириллица ////
+cout << "Введите строку из скобок \n";
+deque<char> d;
+string s;
+getline(cin, s);
+for (auto &r : s) d.push_back(r);
+while (d.empty() == false) 
+	{																					   //// Изначально, было установлено некорректное условие цикла while() ////
+	if ((d.back() == ')' && d.front() == '(') || (d.back() == ']' && d.front() == '[')) {  //// Не хватало закрывающей скобки ////
+		d.pop_front();																	   //// Необходимо было поменять местами back() и front() ////
+		d.pop_back();
+	}
+	}
+d.shrink_to_fit();
+	if (d.empty())
+cout << "Скобки расставлены верно!";
+	else {
+		cout << d.size() << endl;
+		cout << "Скобки расставлены неправильно ! ";
+	}
+	cout << endl;
+
+return 0;
+}
+
+
+/*
+Вывод:
+
+Введите строку из скобок
+()()()()()()[][][]()([])
+Скобки расставлены неправильно !
+
+Введите строку из скобок
+([([([([])])])])
+Скобки расставлены верно!
+
+*/
