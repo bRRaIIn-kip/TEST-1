@@ -1,0 +1,19 @@
+#include <iostream>
+#include <list>
+
+using namespace std;
+
+int main()
+{
+	list<int> numbers = { 1, 2, 3, 4, 5 };
+	auto iter = ++numbers.cbegin();		// итератор указывает на второй элемент numbers. emplace(iter, 8);
+	numbers.emplace(iter, 8);			// добавляем после первого элемента numbers = { 1, 8, 2, 3, 4, 5};
+	for (int n : numbers)				
+		cout << n << "\t"; 
+		cout << endl;
+	return 0;
+	}
+
+/*
+Вывод:
+1       8       2       3       4       5 */
