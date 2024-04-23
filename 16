@@ -1,0 +1,32 @@
+#include <iostream>
+#include <forward_list>
+
+using namespace std;
+
+int main()
+{
+	forward_list<int> numbers = { 1, 2, 3, 4, 5, 6, 7 };
+
+
+	numbers.pop_front();
+	// numbers = { 2, 3, 4, 5, 6, 7};
+
+
+	auto iter = numbers.erase_after(numbers.begin());
+	// numbers = { 2, 4, 5, 6, 7 };
+	// iter указывает на элемент 4
+
+
+	numbers.erase_after(iter, numbers.end());
+	// numbers = { 2, 4};
+
+	for (int n : numbers)
+		cout << n << "\t";
+	cout << endl;
+	return 0;
+}
+
+
+/*Вывод:
+2       4
+*/
