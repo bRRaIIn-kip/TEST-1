@@ -1,0 +1,20 @@
+#include <iostream>
+#include <vector>
+
+int main() {
+	std::vector<std::vector<int>> v({
+		std::vector <int> {1, 2, 3, 4, 53},
+		std::vector <int> {16, 1, 0, 9, 10},
+	});
+
+	for (const auto vec : v) {
+		for (const auto rowNum : vec) {
+			std::cout << rowNum;
+		}
+		std::cout << std::endl;
+	}
+}
+
+/*Вывод:
+123453
+1610910*/
